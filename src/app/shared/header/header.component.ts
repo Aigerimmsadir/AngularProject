@@ -12,13 +12,19 @@ export class HeaderComponent implements OnInit, OnDestroy {
   subscriptions = new Subscription();
 
   constructor(private authService: AuthService) { }
-
+  get token(): string {
+    return localStorage.getItem('Token');
+  }
   ngOnInit() {
-    this.subscriptions.add(
-      this.authService.user.subscribe(user => {
-        this.user = user;
-      })
-    );
+    // this.subscriptions.add(
+    //   this.authService.userAsObservable().subscribe(user => {
+    //     this.user = user;
+    //     console.log(user)
+    //   })
+    // );
+    this.authService.currentUser().subscribe(res=>{
+      this.user=res
+    })
   }
 
   ngOnDestroy(): void {

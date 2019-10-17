@@ -1,1 +1,19 @@
-<p>{{user}}</p>
+<nav class="navbar navbar-expand-lg greynav">
+  <div class="company_name">
+
+    <i class="fa fa-bars custom_icon" aria-hidden="true"> </i> 
+    <a *ngIf="token" class="navbar-brand" href="#">Navbar</a>
+    <a *ngIf="!token" class="navbar-brand" href="#">BITRIX</a>
+  </div>
+    <form class="form-inline ">
+        <input class="form-control form-rounded hehe" type="search" placeholder="Search" aria-label="Search">
+      </form>
+      <div class="clock">
+        
+      </div>
+      <div class="user_profile dropdown-menu">
+          <a class="navbar-brand" href="#">{{user.username}}</a>
+          <!-- <img src="{{user.profile.}}" alt=""> -->
+        </div>
+  
+  </nav>

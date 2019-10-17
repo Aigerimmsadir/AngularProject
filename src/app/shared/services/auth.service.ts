@@ -1,29 +1,32 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {BehaviorSubject, Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  user = new BehaviorSubject(null);
-
+  user = new BehaviorSubject(this.currentUser());
   get token(): string {
-    return localStorage.getItem('token');
+    return localStorage.getItem('Token');
   }
 
   set token(token: string) {
-    localStorage.setItem('token', token);
+    localStorage.setItem('Token', token);
   }
 
   constructor(private http: HttpClient) { }
 
-  login(cred): Observable<any> {
-    return this.http.post('127.0.0.1:8000/login', cred);
+  login(cred:any) : Observable<any>{
+   return this.http.post<any>('http://127.0.0.1:8000/main/login/',JSON.stringify(cred),{
+      headers:new HttpHeaders({'Content-Type':'application/json','Authorization': `JWT ${this.token}`})
+    })
   }
 
   currentUser(): Observable<any> {
-    return this.http.get('123jfjfa/me');
+    const token = this.token
+    return this.http.get('http://127.0.0.1:8000/main/users/me/',{
+      headers:new HttpHeaders({'Content-Type':'application/json',"Authorization": `JWT ${token}`})});
   }
 
   userAsObservable() {
