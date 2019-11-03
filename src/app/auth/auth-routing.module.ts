@@ -7,9 +7,9 @@ const routes: Routes = [
   {path: '', pathMatch: 'full', component: LoginComponent},
   {path: 'login', pathMatch: 'full', component: LoginComponent},
 ];
-
+// const routes: Routes = []
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AuthRoutingModule { }

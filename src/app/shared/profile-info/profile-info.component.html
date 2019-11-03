@@ -1,0 +1,12 @@
+<div class="dropdown">
+  <button class="btn dropdown-toggle profile-drop " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+    <img class="author_post_avatar" src="{{user.profile.avatar}}">
+    &nbsp;{{user.profile.first_name}} {{user.profile.last_name}}
+  </button>
+  <div class="dropdown-menu profile-drop" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item items" href="#">Моя страница</a>
+    <a class="dropdown-item items" href="#">Настройки</a>
+    <a class="dropdown-item items" (click)="logout()">Выйти</a>
+  </div>
+</div>

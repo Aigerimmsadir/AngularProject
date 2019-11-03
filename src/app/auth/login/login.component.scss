@@ -1,0 +1,31 @@
+.auth_content{
+padding: 8% 20%;
+}
+
+.auth_label{
+    font-size: 40px;
+}
+.auth_label_block{
+    border-color: grey;
+    margin:50px 0;
+}
+.auth_form{
+    margin: 10px 0;
+}
+.auth_form_control{
+    height: 45px;
+    margin: 5px;
+    border-radius: 0;
+    border-width: 0.1em;
+    border-color:#e1e1e8;
+}
+.auth_submit{
+    margin: 20px 100px;
+    border-radius: 20px;
+    background-color: #9dcf00;
+}
+.auth_warn{
+    padding: 20px;
+    background-color: rgba(189,240,11,.24);
+    margin-bottom: 20px;
+}

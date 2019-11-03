@@ -1,0 +1,33 @@
+<ul class="list-group">
+  <li class="list-group-item post-li" *ngFor="let comment of comments">
+    <div class="author_post">
+      <div>
+        <img class="author_post_avatar" src= "{{comment.author.profile.avatar}}">
+        <div class="author_post_name">{{comment.author.profile.first_name}} {{comment.author.profile.last_name}}</div>
+        &nbsp;
+        <div class="author_post_date">{{comment.created_date | date:'medium'}}</div>
+      </div>
+      <div class="post_content">
+        {{comment.text}}
+      </div>
+    </div>
+  </li>
+</ul>
+<br>
+<label> Комментарии </label>
+<br>
+<label> Добавить комментарий </label>
+<form [formGroup]="form" class="form-group post-form" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+
+    <input class="form-control new_post" formControlName="text" type="text"/>
+    <div class="file_upload">
+      <button class="btn btn-sm file_upload_btn">
+        <i class="fa fa-image" aria-hidden="true"> </i></button>
+      <button class="btn btn-sm  file_upload_btn"><i class="fa fa-file" aria-hidden="true"> </i></button>
+    </div>
+    <button class="btn btn-sm post_submit" type="submit">Отправить</button>
+    <button class="btn btn-sm">Отменить</button>
+  </div>
+</form>
+
