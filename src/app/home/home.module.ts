@@ -8,21 +8,20 @@ import {AuthInterceptor} from '../AuthInterceptor';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {SidebarComponent} from '../shared/sidebar/sidebar.component';
 import {CommentComponent} from './comment/comment.component';
+import {AppModule} from '../app.module';
+import {ButtonBlueDirective} from '../shared/button-blue.directive';
+import {ShortenTextPipe} from '../shared/shorten-text.pipe';
 
 @NgModule({
-  declarations: [PostListComponent, SidebarComponent, CommentComponent],
+  declarations: [PostListComponent, SidebarComponent, CommentComponent, ButtonBlueDirective, ShortenTextPipe],
   imports: [
     HomeRoutingModule,
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+
   ],
   providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: AuthInterceptor,
-      multi: true
-    }
   ]
 })
 export class HomeModule {

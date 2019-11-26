@@ -1,14 +1,29 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, AfterViewInit} from '@angular/core';
 import {AuthService} from '../../shared/services/auth.service';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {mergeMap} from 'rxjs/operators';
+import {
+  trigger,
+  style,
+  animate,
+  transition,
+} from '@angular/animations';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
+  animations: [
+    trigger('Appear', [
+      transition(':enter',  [
+        style({ opacity: 0 }),
+        animate('5s', style({ opacity: 1 })),
+      ]),
+    ]),
+  ]
 })
+
 export class LoginComponent implements OnInit {
   form: FormGroup;
   posts: any[];
@@ -18,8 +33,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.form = new FormGroup({
-      username: new FormControl('', [Validators.required, Validators.maxLength(15)]),
-      password: new FormControl('', [Validators.required, Validators.maxLength(20)]),
+      email: new FormControl('admin@gmail.com', [Validators.required, Validators.maxLength(15)]),
+      password: new FormControl('root', [Validators.required, Validators.maxLength(20)]),
     });
   }
 
@@ -28,20 +43,11 @@ export class LoginComponent implements OnInit {
       console.log('kek');
       return;
     }
-    //this.authService.token
-    //this.auth
     const cred = this.form.value;
-    this.authService.login(cred).pipe(
-      mergeMap(result => {
-        console.log(result);
-        this.authService.token = result.token;
-        return this.authService.currentUser();
-      })
-    ).subscribe(
-      user => {
-        console.log(user);
-        this.authService.user.next(user);
-        console.log('user', this.authService.user.value);
+    this.authService.login(cred).subscribe(
+      result => {
+        this.authService.token = result.access;
+        this.authService.user.next(result.user);
         this.router.navigate(['posts']);
       },
       error => {

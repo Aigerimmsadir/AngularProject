@@ -2,8 +2,8 @@
   <div class="company_name">
 
     <i class="fa fa-bars custom_icon" aria-hidden="true"> </i>
-    <a *ngIf="isUser()" class="navbar-brand" href="#">{{user.profile.company.name}}</a>
-    <a *ngIf="!isUser()" class="navbar-brand" href="#">BITRIX</a>
+    <a *ngIf="user" class="navbar-brand" href="#">{{user?.profile?.company?.name}}</a>
+    <a *ngIf="!user" class="navbar-brand" href="#">{{'bitrix24' | uppercase}}</a>
   </div>
 
     <form  class="form-inline ">
@@ -13,5 +13,5 @@
 
       </div>
 
-  <app-profile-info></app-profile-info>
+  <app-profile-info *ngIf="user"></app-profile-info>
   </nav>

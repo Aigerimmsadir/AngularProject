@@ -6,18 +6,19 @@ import { HomeModule } from './home/home.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/header/header.component';
-import {AuthInterceptor} from './AuthInterceptor'
+import {AuthInterceptor} from './AuthInterceptor';
 import { AuthService } from './shared/services/auth.service';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import { provideRoutes } from '@angular/router';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { ProviderService } from './shared/services/provider.service';
 import { ProfileInfoComponent } from './shared/profile-info/profile-info.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    ProfileInfoComponent,
+    ProfileInfoComponent
   ],
   imports: [
     BrowserModule,
@@ -26,13 +27,17 @@ import { ProfileInfoComponent } from './shared/profile-info/profile-info.compone
     AuthModule,
     HomeModule,
     AngularFontAwesomeModule
-  ], providers: [
+  ],
+  providers: [
     AuthModule,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true
     }
+  ],
+  exports: [
+    HeaderComponent
   ],
   bootstrap: [AppComponent]
 })

@@ -17,18 +17,21 @@ export class AuthService {
   }
 
   constructor(private http: HttpClient) {
+    if (this.token) {
+      this.currentUser().subscribe(user => this.user.next(user));
+    }
   }
 
   login(cred: any): Observable<any> {
-    return this.http.post<any>('http://127.0.0.1:8000/main/login/', JSON.stringify(cred), {
-      headers: new HttpHeaders({'Content-Type': 'application/json', 'Authorization': `JWT ${this.token}`})
+    return this.http.post<any>('http://127.0.0.1:8000/api/token/', JSON.stringify(cred), {
+      headers: new HttpHeaders({'Content-Type': 'application/json'})
     });
   }
 
   currentUser(): Observable<any> {
     const token = this.token;
-    return this.http.get('http://127.0.0.1:8000/main/users/me/', {
-      headers: new HttpHeaders({'Content-Type': 'application/json', 'Authorization': `JWT ${token}`})
+    return this.http.get('http://127.0.0.1:8000/users/me/', {
+      headers: new HttpHeaders({'Content-Type': 'application/json', 'Authorization': `Bearer ${token}`})
     });
   }
 

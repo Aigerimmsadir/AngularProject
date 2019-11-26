@@ -15,8 +15,9 @@ export class ProfileInfoComponent implements OnInit {
   user: any;
 
   ngOnInit() {
-    this.authService.currentUser().subscribe(res => {
-      this.user = res;
+    this.authService.user.subscribe(user => {
+      this.user = user;
+      console.log(user);
     });
   }
 
@@ -24,6 +25,5 @@ export class ProfileInfoComponent implements OnInit {
     localStorage.clear();
     this.router.navigate(['login']);
     this.authService.user.next(null);
-
   }
 }

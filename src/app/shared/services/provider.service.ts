@@ -15,26 +15,26 @@ export class ProviderService {
   }
 
   post_list(): Observable<any> {
-    return this.http.get<any>('http://127.0.0.1:8000/main/posts/', {
-      headers: new HttpHeaders({'Content-Type': 'application/json', 'Authorization': `JWT ${this.token}`})
+    return this.http.get<any>('http://127.0.0.1:8000/posts/', {
+      headers: new HttpHeaders({'Content-Type': 'application/json'})
     });
   }
 
   post_create(cred: any): Observable<any> {
-    return this.http.post<any>('http://127.0.0.1:8000/main/posts/', JSON.stringify(cred), {
-      headers: new HttpHeaders({'Content-Type': 'application/json', 'Authorization': `JWT ${this.token}`})
+    return this.http.post<any>('http://127.0.0.1:8000/posts/', JSON.stringify(cred), {
+      headers: new HttpHeaders({'Content-Type': 'application/json', 'Authorization': `Bearer ${this.token}`})
     });
   }
 
   comment_list(post_id: any): Observable<any> {
     console.log(post_id)
-    return this.http.get<any>(`http://127.0.0.1:8000/main/posts/${post_id}/comments/`, {
-      headers: new HttpHeaders({'Content-Type': 'application/json', 'Authorization': `JWT ${this.token}`})
+    return this.http.get<any>(`http://127.0.0.1:8000/posts/${post_id}/comments/`, {
+      headers: new HttpHeaders({'Content-Type': 'application/json', 'Authorization': `Bearer ${this.token}`})
     });
   }
   comment_create(post_id: any, cred: any): Observable<any> {
-    return this.http.post<any>(`http://127.0.0.1:8000/main/posts/${post_id}/comments/`, JSON.stringify(cred), {
-      headers: new HttpHeaders({'Content-Type': 'application/json', 'Authorization': `JWT ${this.token}`})
+    return this.http.post<any>(`http://127.0.0.1:8000/posts/${post_id}/comments/`, JSON.stringify(cred), {
+      headers: new HttpHeaders({'Content-Type': 'application/json', 'Authorization': `Bearer ${this.token}`})
     });
   }
 }

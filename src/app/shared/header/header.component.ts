@@ -10,30 +10,16 @@ import {Observable} from 'rxjs';
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   user: any;
-  isAuthorized = new BehaviorSubject<any>(null);
+  company = '';
+  subscr = new Subscription();
+
   constructor(private authService: AuthService) {
   }
 
-  get token(): string {
-    return localStorage.getItem('Token');
-  }
-
-  company = '';
-  subscr: any;
-
   ngOnInit() {
-    this.subscr = this.authService.user.subscribe(user => {
-      this.user = user;
-    });
-  }
-
-
-  isUser() {
-    console.log('hereis' + this.user.username);
-    if (this.user) {
-      return true;
-    }
-    return false;
+    this.subscr.add(this.authService.user.subscribe(user =>
+      this.user = user,
+    ));
   }
 
   ngOnDestroy(): void {

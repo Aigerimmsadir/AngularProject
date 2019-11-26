@@ -22,12 +22,17 @@ export class PostListComponent implements OnInit {
     });
     this.providerService.post_list().subscribe(res => {
       this.posts = res;
+      console.log(this.posts);
     });
   }
 
   onSubmit() {
     console.log(this.form.value);
-    this.providerService.post_create(this.form.value).subscribe(res => {
+    var form_value = this.form.value;
+    form_value.user_ids = [];
+    form_value.documents_uploaded = [];
+
+    this.providerService.post_create(form_value).subscribe(res => {
       this.posts.unshift(res);
       this.form.reset();
     });
