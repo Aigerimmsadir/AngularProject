@@ -1,0 +1,54 @@
+<div class="title">
+<p class="user_full_name">{{user.first_name}} {{user.last_name}}</p>
+</div>
+<div class="head_form">
+<button class="active btn btn-lg new_post_btn">{{'профиль'| uppercase}}</button>
+<button class="btn btn-lg new_post_btn">{{'отчёты'| uppercase}}</button>
+  </div>
+<div class="profile-info">
+        
+<div class="row first_row">
+    <div class="col-6 avatar_div">
+<img class="avatar" src="{{user.profile.avatar}}">
+    </div>
+    <div class="col-6">
+            <ul class="list-group">
+                    <li class="list-group-item header_item">
+                           
+                       Контактная информация
+
+                    </li>
+                    <li class="list-group-item">
+                            <p class="lables">Имя</p>
+                        {{user.first_name}}
+
+                    </li>
+                    <li class="list-group-item">
+                            <p class="lables">Фамилия</p>
+                        {{user.last_name}}
+                    </li>
+                    <li class="list-group-item"><p class="lables">Контактный Email</p>{{user.email}}</li>
+                    <li class="list-group-item"><p class="lables">Телефон</p>{{user.profile.phone}}</li>
+                    <li class="list-group-item"><p class="lables">День рождения</p>{{user.profile.date_of_birth}}</li>
+                  </ul>
+            </div>
+</div>
+<div class="row ">
+        <div class="col-6 ">
+    
+        </div>
+        <div class="col-6">
+                <ul class="list-group">
+                        <li class="list-group-item header_item">
+                           
+                                Руководитель
+         
+                             </li>
+                        <li class="list-group-item">
+                           
+                            {{head_us.first_name}} {{head_us.last_name}}
+                      </ul>
+                </div>
+    </div>
+
+</div>

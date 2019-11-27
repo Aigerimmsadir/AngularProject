@@ -13,12 +13,16 @@ import { provideRoutes } from '@angular/router';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { ProviderService } from './shared/services/provider.service';
 import { ProfileInfoComponent } from './shared/profile-info/profile-info.component';
-
+import { MatButtonModule, MatCheckboxModule, MatTableModule } from '@angular/material';
+import { MatDialogModule } from '@angular/material/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ProfileSlideComponent } from './shared/profile-slide/profile-slide.component'
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    ProfileInfoComponent
+    ProfileInfoComponent,
+    ProfileSlideComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +30,14 @@ import { ProfileInfoComponent } from './shared/profile-info/profile-info.compone
     AppRoutingModule,
     AuthModule,
     HomeModule,
-    AngularFontAwesomeModule
+    AngularFontAwesomeModule,
+    BrowserAnimationsModule,MatButtonModule,
+    MatCheckboxModule,
+    MatTableModule,
+    MatDialogModule
+  ],
+  entryComponents:[
+    ProfileSlideComponent
   ],
   providers: [
     AuthModule,

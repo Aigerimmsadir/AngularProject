@@ -19,7 +19,16 @@ export class ProviderService {
       headers: new HttpHeaders({'Content-Type': 'application/json'})
     });
   }
-
+  profile_detail(profile_id:any): Observable<any> {
+    return this.http.get<any>(`http://127.0.0.1:8000/profiles/${profile_id}/`, {
+      headers: new HttpHeaders({'Content-Type': 'application/json'})
+    });
+  }
+  user_detail(profile_id:any): Observable<any> {
+    return this.http.get<any>(`http://127.0.0.1:8000/users/${profile_id}/`, {
+      headers: new HttpHeaders({'Content-Type': 'application/json'})
+    });
+  }
   post_create(cred: any): Observable<any> {
     return this.http.post<any>('http://127.0.0.1:8000/posts/', JSON.stringify(cred), {
       headers: new HttpHeaders({'Content-Type': 'application/json', 'Authorization': `Bearer ${this.token}`})

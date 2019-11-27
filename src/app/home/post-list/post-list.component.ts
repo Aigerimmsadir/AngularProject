@@ -25,7 +25,6 @@ export class PostListComponent implements OnInit {
       console.log(this.posts);
     });
   }
-
   onSubmit() {
     console.log(this.form.value);
     var form_value = this.form.value;

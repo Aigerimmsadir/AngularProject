@@ -47,6 +47,7 @@ export class LoginComponent implements OnInit {
     this.authService.login(cred).subscribe(
       result => {
         this.authService.token = result.access;
+        this.authService.refresh_token = result.refresh;
         this.authService.user.next(result.user);
         this.router.navigate(['posts']);
       },
