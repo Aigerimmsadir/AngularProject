@@ -19,6 +19,12 @@ export class ProviderService {
       headers: new HttpHeaders({'Content-Type': 'application/json'})
     });
   }
+  post_detail(post_id:any): Observable<any> {
+    return this.http.get<any>(`http://127.0.0.1:8000/posts/${post_id}/`, {
+      headers: new HttpHeaders({'Content-Type': 'application/json'})
+    });
+  }
+
   profile_detail(profile_id:any): Observable<any> {
     return this.http.get<any>(`http://127.0.0.1:8000/profiles/${profile_id}/`, {
       headers: new HttpHeaders({'Content-Type': 'application/json'})

@@ -11,16 +11,13 @@ export class ProfileSlideComponent implements OnInit {
   constructor(private authService: AuthService,private providerService:ProviderService) { }
   user: any;
   head:any;
-  head_us:any
   ngOnInit() {
     this.authService.user.subscribe(user => {
       this.user = user;
       console.log(user);
-      this.providerService.profile_detail(parseInt(this.user.profile.head)).subscribe(head=>{
+      this.providerService.user_detail(parseInt(this.user.profile.head)).subscribe(head=>{
         this.head=head;
-        this.providerService.user_detail(parseInt(this.head.user)).subscribe(us=>{
-this.head_us=us
-        })
+        console.log(head.profile.avatar)
         
       })
     });

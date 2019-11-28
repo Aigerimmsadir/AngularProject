@@ -16,13 +16,18 @@ import { ProfileInfoComponent } from './shared/profile-info/profile-info.compone
 import { MatButtonModule, MatCheckboxModule, MatTableModule } from '@angular/material';
 import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ProfileSlideComponent } from './shared/profile-slide/profile-slide.component'
+import { ProfileSlideComponent } from './shared/profile-slide/profile-slide.component';
+import { NotFoundPageComponent } from './shared/not-found-page/not-found-page.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     ProfileInfoComponent,
-    ProfileSlideComponent
+    ProfileSlideComponent,
+    NotFoundPageComponent,
+
   ],
   imports: [
     BrowserModule,

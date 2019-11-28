@@ -2,7 +2,7 @@
   <div class="company_name">
 
     <i class="fa fa-bars custom_icon" aria-hidden="true"> </i>
-    <a *ngIf="user" class="navbar-brand" href="#">{{user?.profile?.company?.name}}</a>
+    <a *ngIf="user" class="navbar-brand" href="/posts">{{user?.profile?.company?.name}}</a>
     <a *ngIf="!user" class="navbar-brand" href="#">{{'bitrix24' | uppercase}}</a>
   </div>
 

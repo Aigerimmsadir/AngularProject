@@ -1,5 +1,6 @@
-
 <app-sidebar></app-sidebar>
+<div class="row">
+  <div class="col-10">
 <div class="content">
   <div class="head_form">
     <button class=" active btn btn-lg new_post_btn">НОВЫЙ ПОСТ</button>
@@ -19,7 +20,7 @@
       <button class="btn btn-lg">Отменить</button>
     </div>
   </form>
-  <div class="head_posts">
+  <div class="head_posts" @Move >
     Живая лента
     <!-- <form [formGroup]="form" class="form-group post-search" (ngSubmit)="onSearch()">
             <div class="form-group">
@@ -36,10 +37,10 @@
             <img class="author_post_avatar" src="{{post.author.profile.avatar}}">
             <div class="author_post_name">{{post.author.first_name}} {{post.author.last_name}}</div>
             &nbsp;
-            <div class="author_post_date">{{post.created_date | date:'medium'}}</div>
+            <div class="author_post_date">{{post.created_date | dateFormat }}</div>
           </div>
           <div class="post_content">
-            {{post.text | shortenText:[40]}}
+            {{post.text}}
           </div>
         </div>
 
@@ -48,4 +49,30 @@
         </div>
       </li>
   </ul>
+</div>
+</div>
+<div class="col-2 side-right">
+    <div appRightSideHeaders>
+      пригласить сотрудников
+      <i class="fa fa-plus" aria-hidden="true"> </i>
+    </div>
+    <div appRightSideHeaders>
+        Популярные записи
+      </div>
+    <div class="shortened_posts">
+      <ul class="list-group">
+          <li class="list-group-item " *ngFor="let post of posts">
+              <div class="author_post">
+                  <div>
+                    <img class="author_post_avatar_shorten" src="{{post.author.profile.avatar}}">
+                    <div class="author_post_name">{{post.author.first_name}} {{post.author.last_name | shortenText:[8]}}</div>
+                  </div>
+                  <div class="post_content_shorten">
+                    {{post.text | shortenText:[40]}}
+                  </div>
+                </div>
+                </li>
+      </ul>
+    </div>
+</div>
 </div>

@@ -79,6 +79,7 @@ div.content {
   display: inline;
   padding-left: 20px;
   font-size: 12px;
+  font-weight: bold; 
 }
 
 .author_post_date {
@@ -94,4 +95,40 @@ div.content {
   border-width: 40px;
   width: 70%;
   margin-left: 100px;
+}
+
+
+
+.side-right{
+  background-color:  #eef2f4;
+}
+.invite_employees{
+  background-color: #48c5d4;
+  color: #fff;
+  display: block;
+  font-size: 12px;
+  font-family: "OpenSans-Bold",Helvetica,Arial,sans-serif;
+  height: 40px;
+  padding: 12px 5px 15px 10px;
+  position: relative;
+  text-transform: uppercase;
+  margin: 20px 10px 0 10px;
+}
+.shortened_posts{
+  display: block;
+  font-size: 12px;
+  font-family: "OpenSans-Bold",Helvetica,Arial,sans-serif;
+  height: 40px;
+  padding: 0;
+  position: relative;
+  margin: 0 10px 0 10px;
+}
+.author_post_avatar_shorten{
+  max-width: 40px;
+  max-height: 40px;
+  border-radius: 50%;
+  display: inline;
+}
+.post_content_shorten{
+  margin: 0;
 }
