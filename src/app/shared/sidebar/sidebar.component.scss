@@ -3,7 +3,6 @@
     padding: 0;
     width: 200px;
     background-color: #eef2f4;
-    position: absolute;
     height: 10000px;
     overflow: auto;
   }
@@ -23,7 +22,7 @@
   }
 
   /* Links on mouse-over */
-  .sidebar a:hover:not(.active) {
+  .sidebar a:hover {
     background-color: #868d95;
     color: white;
   }

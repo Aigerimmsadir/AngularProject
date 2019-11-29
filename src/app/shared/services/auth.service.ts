@@ -29,22 +29,16 @@ export class AuthService {
   }
 
   login(cred: any): Observable<any> {
-    return this.http.post<any>('http://127.0.0.1:8000/api/token/', JSON.stringify(cred), {
-      headers: new HttpHeaders({'Content-Type': 'application/json'})
-    });
+    return this.http.post<any>('http://127.0.0.1:8000/api/token/', JSON.stringify(cred))
   }
   refresh(): Observable<any> {
     const refresh_token=this.refresh_token
     console.log(refresh_token)
-    return this.http.post<any>('http://127.0.0.1:8000/api/refresh/', JSON.stringify({'refresh':refresh_token}), {
-      headers: new HttpHeaders({'Content-Type': 'application/json'})
-    });
+    return this.http.post<any>('http://127.0.0.1:8000/api/refresh/', JSON.stringify({'refresh':refresh_token}))
   }
   currentUser(): Observable<any> {
     const token = this.token;
-    return this.http.get('http://127.0.0.1:8000/users/me/', {
-      headers: new HttpHeaders({'Content-Type': 'application/json', 'Authorization': `Bearer ${token}`})
-    });
+    return this.http.get('http://127.0.0.1:8000/users/me/')
   }
 
   userAsObservable() {

@@ -16,6 +16,9 @@ export class ProfileInfoComponent implements OnInit {
   user: any;
   openDialog(): void {
     const dialogRef = this.dialog.open(ProfileSlideComponent, {
+      data:{
+        user_id:this.user.id
+      },
       width: '1000px',
       height: '100000px'
     });
@@ -24,6 +27,7 @@ export class ProfileInfoComponent implements OnInit {
       console.log('The dialog was closed');
     });
   }
+  
   ngOnInit() {
     this.authService.user.subscribe(user => {
       this.user = user;

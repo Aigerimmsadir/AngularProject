@@ -1,7 +1,7 @@
-<div class="auth_content">
-  <div class="auth_label_block">
-    <label class="auth_label">Bitrix24 Login</label>
-  </div>
+<div class="auth_label_block">
+  <label class="auth_label">Bitrix24 Login</label>
+</div>
+<div *ngIf="!isForgot" class="auth_content">
 
 <div class="auth_warn">
     Чтобы войти на bitrix24.kz, пожалуйста, авторизуйтесь с вашим логином и паролем или через соцсети
@@ -11,7 +11,11 @@
       <label for="username">Введите логин или email</label>
   <input  class="form-control auth_form_control"  formControlName="email" type="text" />
   <input  class="form-control auth_form_control" formControlName="password" type="text" />
-  <button class="btn btn-lg auth_submit" type="submit">Войти</button> <button class="btn btn-lg auth_forgot" type="submit">Забыли пароль?</button>
+  <button class="btn btn-lg auth_submit" type="submit">Войти</button> 
     </div>
+   
 </form>
+<button class="btn btn-lg auth_forgot " (click)="forgotPassword()">Забыли пароль?</button>
 </div>
+
+   <div class="forgot" #container></div>

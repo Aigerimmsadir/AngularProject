@@ -1,5 +1,5 @@
 .auth_content{
-padding: 8% 20%;
+padding: 5% 20%;
 }
 
 .auth_label{
@@ -7,11 +7,12 @@ padding: 8% 20%;
 }
 .auth_label_block{
     border-color: grey;
-    margin:50px 0;
+    margin-top: 50px;
+    padding: 0 20%;
 }
 .auth_form{
     margin: 10px 0;
-}
+} 
 .auth_form_control{
     height: 45px;
     margin: 5px;
@@ -37,4 +38,8 @@ padding: 8% 20%;
   color: #000000;
   font-weight: bold;
   font-size: 20px;
+}
+.forgot{
+    padding: 5% 20%;
+    margin: auto;
 }
