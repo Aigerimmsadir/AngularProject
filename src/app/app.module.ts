@@ -20,6 +20,8 @@ import { ProfileSlideComponent } from './shared/profile-slide/profile-slide.comp
 import { NotFoundPageComponent } from './shared/not-found-page/not-found-page.component';
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,

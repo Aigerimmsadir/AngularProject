@@ -8,12 +8,12 @@
 </div>
 <form [formGroup]="form" (ngSubmit)="onSubmit()" @Appear>
     <div class="form-group auth_form">
-      <label for="username">Введите логин или email</label>
+      <label for="email">Введите логин или email</label>
   <input  class="form-control auth_form_control"  formControlName="email" type="text" />
-  <input  class="form-control auth_form_control" formControlName="password" type="text" />
-  <button class="btn btn-lg auth_submit" type="submit">Войти</button> 
+  <input  class="form-control auth_form_control" formControlName="password" type="password" />
+  <button class="btn btn-lg auth_submit" type="submit">Войти</button>
     </div>
-   
+
 </form>
 <button class="btn btn-lg auth_forgot " (click)="forgotPassword()">Забыли пароль?</button>
 </div>

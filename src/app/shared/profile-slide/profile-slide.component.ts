@@ -18,10 +18,8 @@ export class ProfileSlideComponent implements OnInit {
     this.providerService.user_detail(parseInt(this.data.user_id)).subscribe(user => {
       this.user = user;
       console.log(user);
-      this.providerService.user_detail(parseInt(this.user.profile.head)).subscribe(head => {
-        this.head = head;
-        console.log(head.profile.avatar)
-
+      this.providerService.get_head(this.user.id).subscribe(head=>{
+        this.head=head
       })
     });
   }

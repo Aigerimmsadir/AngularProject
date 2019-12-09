@@ -11,13 +11,13 @@ export class DateFormatPipe implements PipeTransform {
 ];
     var fulldate=new DatePipe('en-US').transform(date, 'dd MMMM, yyyy h:mm')
     date = new DatePipe('en-US').transform(date, format)
-    console.log(date)
+
     var today = new Date();
     var today_date = today.getDate()+' '+monthNames[today.getMonth()]+", "+today.getFullYear()
-    console.log(today_date)
+
     var yesterday = new Date();
     var yesterday_date = (today.getDate()-1)+' '+monthNames[today.getMonth()]+", "+today.getFullYear()
-    console.log(yesterday_date)
+
     if (String(date)==today_date){
       return 'today, '+today.getHours()+":"+today.getMinutes()
     }

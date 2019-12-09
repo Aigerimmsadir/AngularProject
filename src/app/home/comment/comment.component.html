@@ -3,9 +3,18 @@
     <div class="author_post">
       <div>
         <img class="author_post_avatar" src= "{{comment.author.profile.avatar}}">
-        <div class="author_post_name">{{comment.author.profile.first_name}} {{comment.author.profile.last_name}}</div>
+        <div class="author_post_name">
+          <a [routerLink]="" (click)="openDialog(comment.author.id)">
+          {{comment.author.first_name}} {{comment.author.last_name}}
+          </a>
+        </div>
         &nbsp;
-        <div class="author_post_date">{{comment.created_date | date:'medium'}}</div>
+        <div class="author_post_date">{{comment.created_date | dateFormat}}</div>
+        <div *ngIf="isMyComment(comment)" class="delete">
+          <a [routerLink]="" (click)="deleteMyComment(comment.id)">
+            delete
+          </a>
+        </div>
       </div>
       <div class="post_content">
         {{comment.text}}
@@ -20,7 +29,7 @@
 <form [formGroup]="form" class="form-group post-form" (ngSubmit)="onSubmit()">
   <div class="form-group">
 
-    <input class="form-control new_post" formControlName="text" type="text"/>
+    <textarea  class="form-control new_post" formControlName="text" type="text"></textarea>
     <div class="file_upload">
       <button class="btn btn-sm file_upload_btn">
         <i class="fa fa-image" aria-hidden="true"> </i></button>

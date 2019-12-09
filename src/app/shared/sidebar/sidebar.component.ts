@@ -9,17 +9,17 @@ import { DepartmentProfilesComponent } from '../department-profiles/department-p
 export class SidebarComponent implements OnInit {
 
   constructor( public dialog: MatDialog) { }
-  openDialog(): void {
-    console.log('j')
-    const dialogRef = this.dialog.open(DepartmentProfilesComponent, {
-      width: '1000px',
-      height: '100000px'
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
-  }
+  // openDialog(): void {
+  //   console.log('j')
+  //   const dialogRef = this.dialog.open(DepartmentProfilesComponent, {
+  //     width: '1000px',
+  //     height: '100000px'
+  //   });
+  //
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     console.log('The dialog was closed');
+  //   });
+  // }
   ngOnInit() {
   }
 

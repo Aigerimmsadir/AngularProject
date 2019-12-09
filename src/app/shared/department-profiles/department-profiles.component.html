@@ -1,1 +1,16 @@
-<p>department-profiles works!</p>
+<div class="row">
+  <div class="col-2">
+    <app-sidebar></app-sidebar>
+  </div>
+  <div class="col-10">
+    <ul class="list-group">
+      <li *ngFor="let dep of departments" class="list-group-item">
+        <a [routerLink]="" (click)="openDepartment(dep.id)">{{dep.name}}</a>
+
+      </li>
+    </ul>
+    <div #container>
+
+    </div>
+  </div>
+</div>

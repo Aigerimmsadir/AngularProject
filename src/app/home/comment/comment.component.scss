@@ -67,7 +67,7 @@ div.content {
 .author_post_name{
   display: inline;
   padding-left: 20px;
-  font-size:12px;
+  font-size:16px;
 }
 .author_post_date{
   display: inline;
@@ -81,4 +81,7 @@ div.content {
   background-color: #eef2f4;
   width: 70%;
   margin-left: 100px;
+}
+.delete{
+  float: right;
 }

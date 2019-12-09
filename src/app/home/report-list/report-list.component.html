@@ -1,0 +1,52 @@
+<div class="row">
+  <div class="col-2 side-right">
+    <app-sidebar></app-sidebar>
+  </div>
+  <div class="col-8">
+    <div class="content">
+      <div class="head_form">
+        <button class=" btn btn-lg new_post_btn" routerLink="/posts" >НОВЫЙ ПОСТ</button>
+        <a class="btn btn-lg new_post_btn active" >ОТЧЕТ</a>
+
+      </div>
+      <form [formGroup]="form" class="form-group post-form" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+
+          <textarea class="form-control new_post" formControlName="text" type="text"></textarea>
+          <div class="file_upload">
+            <button class="btn btn-sm file_upload_btn">
+              <i class="fa fa-image" aria-hidden="true"> </i></button>
+            <button class="btn btn-sm  file_upload_btn"><i class="fa fa-file" aria-hidden="true"> </i></button>
+          </div>
+          <button appButtonBlue type="submit">Отправить</button>
+          <button class="btn btn-lg">Отменить</button>
+        </div>
+      </form>
+      <ul class="list-group">
+        <li class="list-group-item post-li" *ngFor="let report of reports">
+          <div class="author_post">
+            <div>
+              <img class="author_post_avatar" src="{{user.profile.avatar}}">
+              <div class="author_post_name" >
+                <a [routerLink]="" (click)="openDialog(user.id)">{{user.first_name}} {{user.last_name}}</a>
+              </div>
+              &nbsp;
+              <div class="author_post_date">{{report.date_from | dateFormat }}</div>
+              <div  class="delete">
+                <a [routerLink]="" (click)="deleteMyPost(post.id)">
+                  delete
+                </a>
+              </div>
+            </div>
+
+
+            <div class="post_content">
+              {{report.text}}
+            </div>
+          </div>
+
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

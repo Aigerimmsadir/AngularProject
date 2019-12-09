@@ -15,6 +15,7 @@ export class AuthService {
   set token(token: string) {
     localStorage.setItem('Token', token);
   }
+
   get refresh_token(): string {
     return localStorage.getItem('Refresh');
   }
@@ -22,6 +23,7 @@ export class AuthService {
   set refresh_token(refresh: string) {
     localStorage.setItem('Refresh', refresh);
   }
+
   constructor(private http: HttpClient) {
     if (this.token) {
       this.currentUser().subscribe(user => this.user.next(user));
@@ -29,16 +31,20 @@ export class AuthService {
   }
 
   login(cred: any): Observable<any> {
-    return this.http.post<any>('http://127.0.0.1:8000/api/token/', JSON.stringify(cred))
+    return this.http.post<any>('http://127.0.0.1:8000/api/token/', JSON.stringify(cred), {
+      headers: new HttpHeaders({'Content-Type': 'application/json'})
+    });
   }
+
   refresh(): Observable<any> {
-    const refresh_token=this.refresh_token
-    console.log(refresh_token)
-    return this.http.post<any>('http://127.0.0.1:8000/api/refresh/', JSON.stringify({'refresh':refresh_token}))
+    const refresh_token = this.refresh_token;
+    console.log(refresh_token);
+    return this.http.post<any>('http://127.0.0.1:8000/api/refresh/', JSON.stringify({'refresh': refresh_token}));
   }
+
   currentUser(): Observable<any> {
     const token = this.token;
-    return this.http.get('http://127.0.0.1:8000/users/me/')
+    return this.http.get('http://127.0.0.1:8000/users/me/');
   }
 
   userAsObservable() {

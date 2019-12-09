@@ -40,7 +40,7 @@ isForgot=false;
   ngOnInit() {
 
     this.form = new FormGroup({
-      email: new FormControl('admin@gmail.com', [Validators.required, Validators.maxLength(15)]),
+      email: new FormControl('admin@gmail.com', [Validators.required, Validators.maxLength(45)]),
       password: new FormControl('root', [Validators.required, Validators.maxLength(20)]),
     });
   }
@@ -54,6 +54,8 @@ isForgot=false;
     this.authService.login(cred).subscribe(
       result => {
         this.authService.token = result.access;
+        localStorage.setItem('user',JSON.stringify(result.user))
+
         this.authService.refresh_token = result.refresh;
         this.authService.user.next(result.user);
         this.router.navigate(['posts']);

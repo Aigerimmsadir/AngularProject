@@ -1,0 +1,42 @@
+{
+  "reports": [
+    {
+      "text": "my first report",
+      "author": {
+        "email": "admin@gmail.com",
+        "first_name": "Aigerim",
+        "id": 1,
+        "last_name": "Sadir"
+        "profile": {
+          "avatar": "http://127.0.0.1:8000/media/profiles/worlds-most-beautiful-cats-3-57fb53b8a6127__700.jpg",
+          "date_of_birth": "2019-12-02",
+          "department": 1,
+          "id": 4,
+          "is_company_admin": false,
+          "is_head": false,
+          "phone": "23456787654",
+          "user": "1"
+        }
+      }
+    },
+    {
+      "text": "my second report",
+      "author": {
+        "email": "admin@gmail.com",
+        "first_name": "Aigerim",
+        "id": 1,
+        "last_name": "Sadir"
+        "profile": {
+          "avatar": "http://127.0.0.1:8000/media/profiles/worlds-most-beautiful-cats-3-57fb53b8a6127__700.jpg",
+          "date_of_birth": "2019-12-02",
+          "department": 1,
+          "id": 4,
+          "is_company_admin": false,
+          "is_head": false,
+          "phone": "23456787654",
+          "user": "1"
+        }
+      }
+    }
+  ]
+}
