@@ -22,6 +22,7 @@ import { NotFoundPageComponent } from './shared/not-found-page/not-found-page.co
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +30,7 @@ import { NotFoundPageComponent } from './shared/not-found-page/not-found-page.co
     ProfileInfoComponent,
     ProfileSlideComponent,
     NotFoundPageComponent,
+
 
   ],
   imports: [

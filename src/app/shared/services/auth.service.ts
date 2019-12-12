@@ -7,7 +7,7 @@ import {BehaviorSubject, Observable} from 'rxjs';
 })
 export class AuthService {
   user = new BehaviorSubject<any>(null);
-
+  user_check=new BehaviorSubject<any>(null);
   get token(): string {
     return localStorage.getItem('Token');
   }
@@ -15,7 +15,6 @@ export class AuthService {
   set token(token: string) {
     localStorage.setItem('Token', token);
   }
-
   get refresh_token(): string {
     return localStorage.getItem('Refresh');
   }
@@ -29,7 +28,11 @@ export class AuthService {
       this.currentUser().subscribe(user => this.user.next(user));
     }
   }
-
+  user_exists(email:any): Observable<any> {
+    return this.http.post<any>('http://127.0.0.1:8000/user_exists/', JSON.stringify(email), {
+      headers: new HttpHeaders({'Content-Type': 'application/json'})
+    });
+  }
   login(cred: any): Observable<any> {
     return this.http.post<any>('http://127.0.0.1:8000/api/token/', JSON.stringify(cred), {
       headers: new HttpHeaders({'Content-Type': 'application/json'})

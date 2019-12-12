@@ -8,9 +8,10 @@ import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ForgotPasswordFormComponent } from './forgot-password-form/forgot-password-form.component';
+import { PasswordFormComponent } from './password-form/password-form.component';
 
 @NgModule({
-    declarations: [LoginComponent, ForgotPasswordFormComponent],
+    declarations: [LoginComponent, ForgotPasswordFormComponent, PasswordFormComponent],
     imports: [
       AuthRoutingModule,
       CommonModule,
@@ -18,7 +19,7 @@ import { ForgotPasswordFormComponent } from './forgot-password-form/forgot-passw
       BrowserModule,
       BrowserAnimationsModule,
     ],
-      entryComponents:[ForgotPasswordFormComponent],
+      entryComponents:[ForgotPasswordFormComponent,PasswordFormComponent],
     providers: [
       AuthModule,
       {
